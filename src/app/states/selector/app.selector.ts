@@ -7,7 +7,7 @@ export const selectAppState = createFeatureSelector<AppState>('favorite');
 
 export const selectProducts = createSelector(
     selectAppState,
-    (state:AppState)=>state.products
+    (state:AppState)=>state?.products
 );
 // get One favorite product by ID
 export const selectProductById = createSelector(

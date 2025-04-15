@@ -1,1 +1,41 @@
-<p>fav-product works!</p>
+<section class="container">
+    <div class="card">
+        <div class="card-body">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- price Column -->
+                <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef> Price </th>
+                    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                </ng-container>
+
+                <!-- image Column -->
+                <ng-container matColumnDef="image">
+                    <th mat-header-cell *matHeaderCellDef> Image </th>
+                    <td mat-cell *matCellDef="let element">
+                        <img src="{{element.image}}" />
+                    </td>
+                </ng-container>
+                <!-- isFav Column -->
+                <ng-container matColumnDef="isFav">
+                    <th mat-header-cell *matHeaderCellDef> isFav </th>
+                    <td mat-cell *matCellDef="let element">
+                        <mat-icon [style.color]="element.isFavorite?'red':'black'"
+                            class="mat-icon-lg icon">favorite</mat-icon>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</section>

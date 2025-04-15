@@ -27,6 +27,7 @@ export class ProductService {
     this.store.dispatch(add({product}));
   }
   getProducts(): Observable<Array<Product>> {
+    debugger;
     return of(products)
   }
   getProductsToFavorites():FavoriteProduct[]{
@@ -52,6 +53,7 @@ export class ProductService {
     const products = <FavoriteProduct[]>this.storageService.get('favoritesProduct');
   
     if(products){
+      debugger;
       this.store.dispatch(updateAllState({products}));
     }
   }
